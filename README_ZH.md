@@ -19,6 +19,24 @@
 
 文中的开源项目状态核对日期为 2026 年 8 月 28 日。“推荐”只表示项目适合某个控制点，不代表部署一个项目就能形成完整的安全边界。
 
+## 安全流程
+
+```mermaid
+flowchart LR
+    INPUT["① 输入安全<br/>规范化 · 检测 · 降权<br/>Purple Llama · NeMo"]
+    CONTEXT["② 上下文安全<br/>授权 · 隔离 · 保留来源<br/>pgvector · OPA"]
+    MODEL["③ 模型安全<br/>验证 · 扫描 · 审计<br/>Safetensors · garak · Inspect Petri"]
+    AGENT["④ 智能体安全<br/>约束 · 观测 · 评测<br/>ADR · AgentDojo · gVisor"]
+    TOOL["⑤ 工具安全<br/>授权 · 校验 · 隔离<br/>Higress · OPA · Firecracker"]
+    OUTPUT["⑥ 输出安全<br/>审核 · 脱敏 · 清洗<br/>Llama Guard · Presidio · DOMPurify"]
+
+    INPUT -->|可信输入| CONTEXT
+    CONTEXT -->|已授权上下文| MODEL
+    MODEL -->|已评估决策| AGENT
+    AGENT -->|策略批准动作| TOOL
+    TOOL -->|已验证结果| OUTPUT
+```
+
 ## 一、输入安全
 
 ### 面临的威胁
@@ -174,4 +192,3 @@ Higress 应部署在智能体与工具服务之间，而不只是放在模型 AP
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
 - [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 - 各章节链接的开源项目官方仓库与文档
-
