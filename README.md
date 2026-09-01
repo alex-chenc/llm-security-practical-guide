@@ -21,21 +21,7 @@ Open-source project status was checked on August 28, 2026. A recommendation mean
 
 ## Security flow
 
-```mermaid
-flowchart LR
-    INPUT["① INPUT SECURITY<br/>Normalize · Detect · Downgrade<br/>Purple Llama · NeMo"]
-    CONTEXT["② CONTEXT SECURITY<br/>Authorize · Isolate · Preserve provenance<br/>pgvector · OPA"]
-    MODEL["③ MODEL SECURITY<br/>Verify · Scan · Audit<br/>Safetensors · garak · Inspect Petri"]
-    AGENT["④ AGENT SECURITY<br/>Constrain · Observe · Evaluate<br/>ADR · AgentDojo · gVisor"]
-    TOOL["⑤ TOOL SECURITY<br/>Authorize · Validate · Isolate<br/>Higress · OPA · Firecracker"]
-    OUTPUT["⑥ OUTPUT SECURITY<br/>Moderate · Redact · Sanitize<br/>Llama Guard · Presidio · DOMPurify"]
-
-    INPUT -->|Trusted input| CONTEXT
-    CONTEXT -->|Authorized context| MODEL
-    MODEL -->|Evaluated decision| AGENT
-    AGENT -->|Policy-approved action| TOOL
-    TOOL -->|Verified result| OUTPUT
-```
+![Six security gates for an LLM request](assets/security-flow-en.svg)
 
 ## 1. Input Security
 

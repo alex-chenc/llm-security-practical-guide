@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-labelledby="title desc">
+  <title id="title">一条大模型请求会经过的六道安全关卡</title>
+  <desc id="desc">请求依次经过输入、上下文、模型、智能体、工具和输出安全，并标注每个关卡的推荐开源项目。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#183552"/>
+    </marker>
+    <style>
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 50px; font-weight: 700; fill: #102b49; letter-spacing: -1px; }
+      .subtitle { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 23px; font-weight: 400; fill: #526579; }
+      .tab { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #ffffff; letter-spacing: .5px; }
+      .card-title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 25px; font-weight: 700; fill: #102b49; }
+      .body { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 19px; font-weight: 400; fill: #334b63; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 17px; font-weight: 400; fill: #61758a; }
+      .tool { font-family: Inter, Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #102b49; }
+      .callout-title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 23px; font-weight: 700; fill: #102b49; }
+      .callout-body { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 18px; font-weight: 400; fill: #445c73; }
+      .takeaway { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; font-weight: 700; fill: #102b49; }
+      .icon { fill: none; stroke: #102b49; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-orange { fill: none; stroke: #cf6d3f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-blue { fill: none; stroke: #4f83b8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-green { fill: none; stroke: #5b907a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #183552; stroke-width: 4; marker-end: url(#arrow); }
+      .divider { stroke: #cbd8e4; stroke-width: 2; stroke-dasharray: 6 7; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="940" fill="#ffffff"/>
+
+  <text class="title" x="800" y="68" text-anchor="middle">一条大模型请求，会经过哪六道安全关卡？</text>
+  <text class="subtitle" x="800" y="108" text-anchor="middle">每个阶段负责不同风险，请求通过当前关卡后才能继续向下流转</text>
+
+  <rect x="40" y="165" width="1520" height="430" rx="28" fill="#fffdfb" stroke="#e6b08f" stroke-width="2.5"/>
+  <rect x="66" y="143" width="270" height="46" rx="12" fill="#cf774d"/>
+  <text class="tab" x="201" y="173" text-anchor="middle">大模型安全主流程</text>
+
+  <!-- 输入安全 -->
+  <rect x="65" y="218" width="210" height="320" rx="22" fill="#fffaf7" stroke="#e7aa87" stroke-width="2.5"/>
+  <rect x="80" y="197" width="180" height="43" rx="11" fill="#cf774d"/>
+  <text class="tab" x="170" y="225" text-anchor="middle">1 · 输入</text>
+  <g transform="translate(124 260)">
+    <rect class="icon" x="0" y="0" width="68" height="82" rx="8"/>
+    <path class="icon" d="M15 22h38M15 38h28M15 54h24"/>
+    <path class="icon-orange" d="M82 28h-30M67 13l15 15-15 15"/>
+  </g>
+  <text class="card-title" x="170" y="374" text-anchor="middle">输入安全</text>
+  <text class="body" x="170" y="408" text-anchor="middle">规范化 · 检测</text>
+  <text class="body" x="170" y="434" text-anchor="middle">降权处置</text>
+  <line class="divider" x1="90" y1="463" x2="250" y2="463"/>
+  <text class="small" x="170" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="170" y="516" text-anchor="middle">Purple Llama · NeMo</text>
+
+  <!-- 上下文安全 -->
+  <rect x="315" y="218" width="210" height="320" rx="22" fill="#f8fbff" stroke="#8eb4d8" stroke-width="2.5"/>
+  <rect x="330" y="197" width="180" height="43" rx="11" fill="#5c8fc2"/>
+  <text class="tab" x="420" y="225" text-anchor="middle">2 · 上下文</text>
+  <g transform="translate(369 259)">
+    <ellipse class="icon" cx="50" cy="14" rx="42" ry="14"/>
+    <path class="icon" d="M8 14v52c0 8 19 14 42 14s42-6 42-14V14M8 39c0 8 19 14 42 14 9 0 17-1 24-3"/>
+    <rect x="59" y="47" width="42" height="34" rx="7" fill="#e9f2fa" stroke="#4f83b8" stroke-width="5"/>
+    <path class="icon-blue" d="M69 47v-8a11 11 0 0 1 22 0v8M80 60v8"/>
+  </g>
+  <text class="card-title" x="420" y="374" text-anchor="middle">上下文安全</text>
+  <text class="body" x="420" y="408" text-anchor="middle">授权 · 隔离</text>
+  <text class="body" x="420" y="434" text-anchor="middle">保留来源</text>
+  <line class="divider" x1="340" y1="463" x2="500" y2="463"/>
+  <text class="small" x="420" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="420" y="516" text-anchor="middle">pgvector · OPA</text>
+
+  <!-- 模型安全 -->
+  <rect x="565" y="218" width="210" height="320" rx="22" fill="#f8fcfa" stroke="#8ebaa8" stroke-width="2.5"/>
+  <rect x="580" y="197" width="180" height="43" rx="11" fill="#6a9e88"/>
+  <text class="tab" x="670" y="225" text-anchor="middle">3 · 模型</text>
+  <g transform="translate(619 258)">
+    <rect class="icon" x="12" y="8" width="78" height="78" rx="15"/>
+    <rect x="35" y="31" width="32" height="32" rx="6" fill="#e8f3ee" stroke="#5b907a" stroke-width="5"/>
+    <path class="icon-green" d="M0 27h12M0 47h12M0 67h12M90 27h12M90 47h12M90 67h12M31 0v8M51 0v8M71 0v8M31 86v8M51 86v8M71 86v8"/>
+  </g>
+  <text class="card-title" x="670" y="374" text-anchor="middle">模型安全</text>
+  <text class="body" x="670" y="408" text-anchor="middle">验证 · 扫描</text>
+  <text class="body" x="670" y="434" text-anchor="middle">行为审计</text>
+  <line class="divider" x1="590" y1="463" x2="750" y2="463"/>
+  <text class="small" x="670" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="670" y="511" text-anchor="middle">Safetensors · garak</text>
+  <text class="tool" x="670" y="532" text-anchor="middle">Inspect Petri</text>
+
+  <!-- 智能体安全 -->
+  <rect x="815" y="218" width="210" height="320" rx="22" fill="#fffaf7" stroke="#e7aa87" stroke-width="2.5"/>
+  <rect x="830" y="197" width="180" height="43" rx="11" fill="#cf774d"/>
+  <text class="tab" x="920" y="225" text-anchor="middle">4 · 智能体</text>
+  <g transform="translate(870 257)">
+    <circle class="icon" cx="50" cy="25" r="19"/>
+    <path class="icon" d="M15 82c3-23 17-35 35-35s32 12 35 35"/>
+    <circle cx="15" cy="86" r="9" fill="#fff2ea" stroke="#cf6d3f" stroke-width="5"/>
+    <circle cx="85" cy="86" r="9" fill="#fff2ea" stroke="#cf6d3f" stroke-width="5"/>
+    <path class="icon-orange" d="M50 57v14M50 71H15v6M50 71h35v6"/>
+  </g>
+  <text class="card-title" x="920" y="374" text-anchor="middle">智能体安全</text>
+  <text class="body" x="920" y="408" text-anchor="middle">约束 · 观测</text>
+  <text class="body" x="920" y="434" text-anchor="middle">安全评测</text>
+  <line class="divider" x1="840" y1="463" x2="1000" y2="463"/>
+  <text class="small" x="920" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="920" y="511" text-anchor="middle">ADR · AgentDojo</text>
+  <text class="tool" x="920" y="532" text-anchor="middle">gVisor</text>
+
+  <!-- 工具安全 -->
+  <rect x="1065" y="218" width="210" height="320" rx="22" fill="#f8fbff" stroke="#8eb4d8" stroke-width="2.5"/>
+  <rect x="1080" y="197" width="180" height="43" rx="11" fill="#5c8fc2"/>
+  <text class="tab" x="1170" y="225" text-anchor="middle">5 · 工具</text>
+  <g transform="translate(1118 257)">
+    <path class="icon" d="M22 4h60v25c0 31-18 51-30 59C40 80 22 60 22 29z"/>
+    <path class="icon-blue" d="M39 52l10 10 20-24"/>
+    <path class="icon" d="M3 37h19M82 37h19M3 54h19M82 54h19"/>
+  </g>
+  <text class="card-title" x="1170" y="374" text-anchor="middle">工具安全</text>
+  <text class="body" x="1170" y="408" text-anchor="middle">授权 · 校验</text>
+  <text class="body" x="1170" y="434" text-anchor="middle">隔离执行</text>
+  <line class="divider" x1="1090" y1="463" x2="1250" y2="463"/>
+  <text class="small" x="1170" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="1170" y="511" text-anchor="middle">Higress · OPA</text>
+  <text class="tool" x="1170" y="532" text-anchor="middle">Firecracker</text>
+
+  <!-- 输出安全 -->
+  <rect x="1315" y="218" width="210" height="320" rx="22" fill="#f8fcfa" stroke="#8ebaa8" stroke-width="2.5"/>
+  <rect x="1330" y="197" width="180" height="43" rx="11" fill="#6a9e88"/>
+  <text class="tab" x="1420" y="225" text-anchor="middle">6 · 输出</text>
+  <g transform="translate(1370 257)">
+    <path class="icon" d="M10 5h56l25 25v63H10zM66 5v25h25"/>
+    <circle cx="68" cy="66" r="25" fill="#e8f3ee" stroke="#5b907a" stroke-width="5"/>
+    <path class="icon-green" d="M55 66l9 9 17-20"/>
+  </g>
+  <text class="card-title" x="1420" y="374" text-anchor="middle">输出安全</text>
+  <text class="body" x="1420" y="408" text-anchor="middle">审核 · 脱敏</text>
+  <text class="body" x="1420" y="434" text-anchor="middle">内容清洗</text>
+  <line class="divider" x1="1340" y1="463" x2="1500" y2="463"/>
+  <text class="small" x="1420" y="490" text-anchor="middle">推荐项目</text>
+  <text class="tool" x="1420" y="511" text-anchor="middle">Llama Guard · Presidio</text>
+  <text class="tool" x="1420" y="532" text-anchor="middle">DOMPurify</text>
+
+  <!-- 流程箭头 -->
+  <path class="flow" d="M280 366h27"/>
+  <path class="flow" d="M530 366h27"/>
+  <path class="flow" d="M780 366h27"/>
+  <path class="flow" d="M1030 366h27"/>
+  <path class="flow" d="M1280 366h27"/>
+
+  <!-- 三个观察角度 -->
+  <rect x="65" y="640" width="460" height="165" rx="22" fill="#fffaf7" stroke="#e7aa87" stroke-width="2.5"/>
+  <rect x="95" y="618" width="185" height="42" rx="10" fill="#cf774d"/>
+  <text class="tab" x="188" y="646" text-anchor="middle">数据可信</text>
+  <g transform="translate(95 684)">
+    <path class="icon-orange" d="M0 17h58v48H0zM10 17V4h38v13M14 40h30"/>
+  </g>
+  <text class="callout-title" x="180" y="696">什么内容可以进出？</text>
+  <text class="callout-body" x="180" y="728">输入、上下文与输出安全</text>
+  <text class="callout-body" x="180" y="755">共同保证推理前后的</text>
+  <text class="callout-body" x="180" y="782">数据可信度。</text>
+
+  <rect x="570" y="640" width="460" height="165" rx="22" fill="#f8fbff" stroke="#8eb4d8" stroke-width="2.5"/>
+  <rect x="600" y="618" width="215" height="42" rx="10" fill="#5c8fc2"/>
+  <text class="tab" x="708" y="646" text-anchor="middle">决策控制</text>
+  <g transform="translate(603 681)">
+    <circle class="icon-blue" cx="28" cy="18" r="16"/>
+    <path class="icon-blue" d="M2 62c3-20 13-28 26-28s23 8 26 28M68 12h34M68 31h34M68 50h24"/>
+  </g>
+  <text class="callout-title" x="700" y="696">什么行为可以执行？</text>
+  <text class="callout-body" x="700" y="728">模型与智能体安全负责</text>
+  <text class="callout-body" x="700" y="755">在意图变成真实动作之前</text>
+  <text class="callout-body" x="700" y="782">评估其风险。</text>
+
+  <rect x="1075" y="640" width="450" height="165" rx="22" fill="#f8fcfa" stroke="#8ebaa8" stroke-width="2.5"/>
+  <rect x="1105" y="618" width="235" height="42" rx="10" fill="#6a9e88"/>
+  <text class="tab" x="1223" y="646" text-anchor="middle">执行边界</text>
+  <g transform="translate(1110 680)">
+    <path class="icon-green" d="M4 4h58v58H4zM18 4v58M48 4v58M4 22h58M4 44h58"/>
+    <path class="icon" d="M73 33h32M92 18l15 15-15 15"/>
+  </g>
+  <text class="callout-title" x="1230" y="696">策略最终在哪里生效？</text>
+  <text class="callout-body" x="1230" y="728">工具网关是生产系统</text>
+  <text class="callout-body" x="1230" y="755">真正改变状态之前的</text>
+  <text class="callout-body" x="1230" y="782">最后一道控制点。</text>
+
+  <!-- 结论 -->
+  <rect x="65" y="845" width="1460" height="68" rx="18" fill="#edf5fb" stroke="#8eb4d8" stroke-width="2.5"/>
+  <g transform="translate(92 855)">
+    <path class="icon-blue" d="M10 0h42v18c0 22-13 36-21 42C23 54 10 40 10 18z"/>
+    <path class="icon-blue" d="M21 29l7 7 14-17"/>
+  </g>
+  <text class="takeaway" x="170" y="887">真正安全的大模型系统，不依赖单一护栏，而是让每次失效都停在独立、可执行的边界内。</text>
+</svg>

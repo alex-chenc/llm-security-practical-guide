@@ -21,21 +21,7 @@
 
 ## 安全流程
 
-```mermaid
-flowchart LR
-    INPUT["① 输入安全<br/>规范化 · 检测 · 降权<br/>Purple Llama · NeMo"]
-    CONTEXT["② 上下文安全<br/>授权 · 隔离 · 保留来源<br/>pgvector · OPA"]
-    MODEL["③ 模型安全<br/>验证 · 扫描 · 审计<br/>Safetensors · garak · Inspect Petri"]
-    AGENT["④ 智能体安全<br/>约束 · 观测 · 评测<br/>ADR · AgentDojo · gVisor"]
-    TOOL["⑤ 工具安全<br/>授权 · 校验 · 隔离<br/>Higress · OPA · Firecracker"]
-    OUTPUT["⑥ 输出安全<br/>审核 · 脱敏 · 清洗<br/>Llama Guard · Presidio · DOMPurify"]
-
-    INPUT -->|可信输入| CONTEXT
-    CONTEXT -->|已授权上下文| MODEL
-    MODEL -->|已评估决策| AGENT
-    AGENT -->|策略批准动作| TOOL
-    TOOL -->|已验证结果| OUTPUT
-```
+![一条大模型请求会经过的六道安全关卡](assets/security-flow-zh.svg)
 
 ## 一、输入安全
 
